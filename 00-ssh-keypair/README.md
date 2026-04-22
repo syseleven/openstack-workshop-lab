@@ -7,8 +7,8 @@ on instances.
 
 ## Goal
 
-* Option 1: create a new SSH keypair via Horizon (GUI) or
-* Option 2: import an existing SSH public key via Horizon (GUI)
+* Option 1: create a new SSH keypair via SysEleven Dashboard or
+* Option 2: import an existing SSH public key via SysEleven Dashboard
 
 ## Preparation
 
