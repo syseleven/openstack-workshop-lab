@@ -13,18 +13,20 @@ With this guide you can create a single instance via the Openstack client.
 * You need your Openstack credentials
   * Username
   * Password
-  * Project ID
-  * Region name
 * basic knowledge of using a Linux terminal and SSH
-* previously installed jumphost from lab [01-erster-login-und-jumphost](/01-erster-login-und-jumphost)
+* pre-installed jumphost infrastructure provided by SysEleven
 
 ---
 
 ### Start
 
-* Log into the jumphost from lab [01-erster-login-und-jumphost](/01-erster-login-und-jumphost) ein
+* Log into the jumphost
 
 `ssh syseleven@<Jumphost-IP> -A -i /path/to/private-key`
+
+* Source your openstack config
+
+`source openstack.sh`
 
 ---
 
@@ -57,12 +59,23 @@ Obtain information with the following commands.
 
 ---
 
+### Import SSH Key for Service Account
+
+Because we are using a Service Account who does not know of our SSH keypair yet,
+we need to import for this account as well using th following command:
+
+```bash
+openstack keypair create workshop --public-key "/path/to/key"
+```
+
+---
+
 ### Creating a new instance
 
-Now we create a new instance directly with Openstack client commands. 
+Now we create a new instance directly with Openstack client commands.
 Enter the previously collected information into the following lines.
 
-```
+```bash
 openstack server create \
   --flavor "<REPLACE>" \
   --image "<REPLACE>" \
@@ -74,14 +87,14 @@ openstack server create \
 
 Example:
 
-* This is just an example! Below entries, IDs and names will be different on your machine!  
+* **This is just an example!** Below entries, IDs and names will be different on your machine!  
 
-```
+```bash
 openstack server create \
-  --flavor "m1.tiny" \
-  --image "Ubuntu Focal 20.04 (2022-11-29)" \
-  --network "workshop-kickstart-net" \
-  --security-group "abad8853-af7c-4e92-8afc-4ea6316dbb15" \
+  --flavor "SCS-1V-2-50n" \
+  --image "Ubuntu Resolute 26.04" \
+  --network "net-workshop-01" \
+  --security-group "secgroup-workshop-01" \
   --key-name "workshop" \
   server-cli
 ```
@@ -100,9 +113,13 @@ Now we verify the current state of the instance
 
 `openstack server show server-cli`
 
+---
+
 #### What did you notice?
 
-* the instance has no public IP address
+* e.g. the instance has no public IP address
+
+---
 
 ### Login
 
@@ -112,8 +129,9 @@ Now we verify the current state of the instance
 
 * we need to use the username "ubuntu", because the cloud-image of Ubuntu requires it
 
-#### Other tasks:
+---
 
-* display the instance in Horizon (GUI)
-* check if the instance appears in the graphical network topology
-* display the security groups assigned to the instance in Horizon
+#### Other tasks
+
+* display the instance in the Web-UI
+* display the security groups assigned to the instance in Dashboard
