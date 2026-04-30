@@ -22,4 +22,5 @@ SSH keypair or optionally create one during the workshop.
 
 Further resources and information
 
-* [SysEleven OpenStack Cloud Dokumentation](https://docs.syseleven.de/syseleven-stack/en)
+* [SysEleven Cloud Documentation](https://documentation.syseleven.de/en/products/syseleven-openstack-cloud/)
+* [Old SysEleven OpenStack Cloud Dokumentation](https://docs.syseleven.de/syseleven-stack/en)
