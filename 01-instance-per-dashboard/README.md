@@ -28,7 +28,7 @@ With this guide you can create a single instance via Web UI.
 ## Create an instance
 
 * Underneath "OpenStack - COMPUTE" click **SERVERS**
-* Click the button **CREATE**#
+* Click the button **CREATE**
   * Make sure you stay in region **DUS2**
 
 ![](images/002-create-instance.png)
