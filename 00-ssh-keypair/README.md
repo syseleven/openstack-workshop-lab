@@ -7,51 +7,46 @@ on instances.
 
 ## Goal
 
-* create a new SSH keypair via Horizon (GUI)
-* import an existing SSH public key via Horizon (GUI)
+* Option 1: create a new SSH keypair via SysEleven Dashboard or
+* Option 2: import an existing SSH public key via SysEleven Dashboard
 
 ## Preparation
 
-* You need the login credentials for Openstack
-  * Username
+* You need the login credentials for SysEleven Cloud
+  * E-mail address
   * Password
-  * Project ID
-  * Region Name
 * Web browser and basic knowledge using a Linux terminal and SSH
 
 ---
 
 ### Login
 
-* Visit the URL https://cloud.syseleven.de
+* Visit the URL https://dashboard.syseleven.de
 
 * log in with your credentials
-  * User Name: `<Username>`
-  * Password: `<Password>`
 * click "Sign In"
 
 ![](images/01-login-window.png)
 
-### Select region
-
-* First check if you are logged in to the correct region and maybe switch region
-
-![](images/02-select-region.png)
+* Make sure the right project is selected in the pojetcts drop down menu on the top left
 
 ### Option 1 - Create SSH keypair
 
-* click "Compute" --> "Key Pairs" to list existing SSH keys
-* click "Create Key Pair"
+* click "SSH Keys" under Openstack in the left side menu
 
-![](images/03-create-key-pair-button.png)
+![](images/02-ssh-keys.png)
 
-![](images/04-create-keypair-name.png)
+* click "Create" in the top right corner
+* make sure "Generate" is selected
+  * also take note of the cloud region the key is created in
+  * SSH keys are bound to the region
+* enter a name and click "Create"
 
-* Enter a `Key Pair Name` name for it and type `workshop`.
-* As `Key Type` choose `SSH Key`
-* click **Create Key Pair**
+![](images/03-create-ssh-key.png)
 
-![](images/05-list-keypair.png)
+* download or copy the key for later use
+
+![](images/04-download-ssh-key.png)
 
 * View the keypair details in the list.
 
@@ -59,19 +54,16 @@ on instances.
 
 ### Option 2 - Import SSH keypair
 
-* click "Compute" --> "Key Pairs" to list existing SSH keys
-* click "Import Public Key"
+* click "SSH Keys" under Openstack in the left side menu
 
-![](images/06-import-public-key-button.png)
+![](images/02-ssh-keys.png)
 
-![](images/07-import-public-key-name.png)
+* click "Create" in the top right corner
+* make sure "Import" is selected
+  * also take note of the cloud region the key is created in
+  * SSH keys are bound to the region
+* paste or import your ssh public key and hit "create"
 
-* Enter a `Key Pair Name` name for it and type `workshop`.
-* As `Key Type` choose `SSH Key`
-* Optionally choose a file from your local machine or
-* paste the public key into the textfield
-* click **Import Key Pair**
-
-![](images/05-list-keypair.png)
+![](images/05-import-ssh-key.png)
 
 * View the keypair details in the list.
